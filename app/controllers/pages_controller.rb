@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
 
+	before_action :set_pages ,only:[:edit,:update,:destroy,:show]
 	def new
 		@page = Page.new
 	end
@@ -15,20 +16,19 @@ class PagesController < ApplicationController
 			redirect_to page_path(@page)
 		else
 			render 'new'
-		end
-
-		
-
+		end		
 	end
+
 	def show
-		@page=Page.find(params[:id])
-		
+		#@page=Page.find(params[:id])		
 	end
+
 	def edit
-		@page=Page.find(params[:id])
+		#@page=Page.find(params[:id])
 	end
+
 	def update
-		@page=Page.find(params[:id])
+		#@page=Page.find(params[:id])
 
 		if @page.update(page_params)
 			flash[:notice]="Save Successfully updated"
@@ -39,7 +39,7 @@ class PagesController < ApplicationController
 	end
 
 	def destroy
-		@page=Page.find(params[:id])		
+		#@page=Page.find(params[:id])		
 		@page.destroy
 		flash[:notice]="Record Successfully Deleted!!!!"
 		redirect_to pages_path
@@ -48,6 +48,9 @@ class PagesController < ApplicationController
 	
 
 	private
+	def set_pages
+		@page=Page.find(params[:id])		
+	end
 
 	def page_params
 	params.require(:page).permit(:title, :description)
