@@ -1,0 +1,40 @@
+
+<style type="text/css">
+.mainDiv{
+	margin-left: 300px;
+}
+table{
+  padding: 8px;
+  width: 80%;
+}
+th{
+  color: #000;
+}
+td {
+  color: #000;
+  text-align: center;
+}
+th,td {
+  border: 1px solid #333;
+  line-height: 25px;
+}
+</style>
+<div class="mainDiv">
+<p id="notice"><%= notice %></p>
+
+<table>
+<tr>
+  <th>Title:</th>
+  <th><%= @article.title %></th>
+</tr>
+
+<tr>
+  <th>Description:</th>
+  <th><%= @article.description %></th>
+</tr>
+</table>
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>
+
+</div>

@@ -1,0 +1,9 @@
+<h1>New</h1>
+
+<%= form_for @pages do | f| %>
+<%= f.label :title %>
+<%= f.text_field  :title%>
+<%= f.label :Description %>
+<%= f.text_area  :description%>
+<%= f.submit%>
+<% end %>

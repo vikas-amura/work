@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :articles
+  resources :pages
+
   root 'logins#index'
 
   get 'index',to: 'users#index'
