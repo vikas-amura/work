@@ -1,0 +1,28 @@
+<style type="text/css">
+.mainDiv{
+	margin-left: 400px;
+}
+</style>
+<div class="mainDiv">
+<ul>
+<% @page.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+
+
+<h1>
+	Edit Pages
+</h1>
+
+<%= form_for @page do | f| %>
+<%= f.label :title %></br></br>
+<%= f.text_field  :title%></br></br>
+<%= f.label :Description %></br></br>
+<%= f.text_area  :description%></br></br>
+<%= f.submit%></br></br>
+<% end %>
+
+<%= link_to 'back ',pages_path%>
+
+</div>

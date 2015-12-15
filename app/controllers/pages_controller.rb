@@ -1,17 +1,18 @@
 class PagesController < ApplicationController
 
 	def new
-		@pages = Page.new
+		@page = Page.new
 	end
 	def index
+		@pages=Page.all
 	end
 	def create
 		#render plain:params[:page].inspect
-		@pag = Page.new(page_params)
+		@page = Page.new(page_params)
 		
-		if @pag.save
+		if @page.save
 			flash[:notice] = 'Data Save SucessFully!!!!'
-			redirect_to page_path(@pag)
+			redirect_to page_path(@page)
 		else
 			render 'new'
 		end
@@ -23,9 +24,31 @@ class PagesController < ApplicationController
 		@page=Page.find(params[:id])
 		
 	end
-	private
+	def edit
+		@page=Page.find(params[:id])
+	end
+	def update
+		@page=Page.find(params[:id])
+
+		if @page.update(page_params)
+			flash[:notice]="Save Successfully updated"
+			redirect_to page_path(@page)
+		else
+			render 'edit'
+		end
+	end
+
+	def destroy
+		@page=Page.find(params[:id])		
+		@page.destroy
+		flash[:notice]="Record Successfully Deleted!!!!"
+		redirect_to pages_path
+	end
+		
+	
 
 	private
+
 	def page_params
 	params.require(:page).permit(:title, :description)
 	end

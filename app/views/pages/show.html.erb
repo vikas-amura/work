@@ -1,7 +1,30 @@
+
+<style type="text/css">
+.mainDiv{
+	margin-left: 300px;
+}
+table{
+  padding: 8px;
+  width: 80%;
+}
+th{
+  color: #000;
+}
+td {
+  color: #000;
+  text-align: center;
+}
+th,td {
+  border: 1px solid #333;
+  line-height: 25px;
+}
+</style>
+<div class="mainDiv">
+
 <h1>The Selected Article</h1>
-title    :<%=@page.title%>
-
-
-<br>
-
-Description <%=@page.description %>
+<table>
+	<tr><td>title:</td><td><%=@page.title%></td>	</tr>
+	<tr><td>Description:</td><td><%=@page.description %></td></tr>
+</table>
+<%= link_to 'back ',pages_path%>
+</div>

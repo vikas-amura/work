@@ -1,1 +1,42 @@
-<h1>Index file</h1>
+<style type="text/css">
+.mainDiv{
+  margin-left:302px;
+}
+table{
+  padding: 8px;
+  width: 80%;
+}
+th{
+  color: #000;text-align: center;
+}
+td {
+  color: #000;
+  text-align: center;
+}
+th,td {
+  border: 1px solid #333;
+  line-height: 25px;
+}
+</style>
+<div class="mainDiv">
+<h1>Listing all Pages</h1>
+<p>
+<%= link_to "Create new page", new_page_path %>
+</p>
+<table>
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th colspan="3"> Action</th>
+</tr>
+<% @pages.each do |page| %>
+<tr>
+<td><%= page.title %></td>
+<td><%= page.description %></td>
+<td><%= link_to 'Edit', edit_page_path(page) %></td>
+<td><%= link_to 'Show', page_path(page) %></td>
+<td><%= link_to 'Delete', page_path(page),method: :delete , data: { confirm: "Are you Sure?"}%></td>
+</tr>
+<% end %>
+</table>
+</div>
