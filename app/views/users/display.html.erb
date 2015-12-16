@@ -1,0 +1,49 @@
+<style type="text/css">
+.mainDiv{
+  margin-left:150px;
+}
+table{
+  padding: 8px;
+  width: 80%;
+}
+th{
+  color: #FFF;text-align: center;
+}
+h1{
+  color: #FFF;
+ }
+td{
+  color: #FFF;
+  text-align: center;
+}
+th,td {
+  border: 1px solid #FFF;
+  line-height: 25px;
+}
+</style>
+<div class="mainDiv">
+<h1>Listing all All User</h1>
+<p>
+
+</p>
+<table>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Mobile</th>
+<th>Message</th>
+<th colspan="3"> Action</th>
+</tr>
+<% @users.each do |user| %>
+<tr>
+<td><%= user.name %></td>
+<td><%= user.email %></td>
+<td><%= user.phone %></td>
+<td><%= user.message %></td>
+<% link_to 'Edit', edit_user_path(user) %>
+<td><%= link_to 'Show', user_path(user) %></td>
+<td><%= link_to 'Delete', user_path(user),method: :delete , data: { confirm: "Are you Sure?"}%></td>
+</tr>
+<% end %>
+</table>
+</div>

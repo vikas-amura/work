@@ -2,14 +2,20 @@
  p,h4,label,button,h3{
   color: #fff;
 }
+p.text-circle {
+  color:#000000;
+  font-size:17px;
+  position:relative;
+  text-align:center;
+  top:130px;
+}
 </style>
     <link href="mystyle.css" rel="stylesheet">
     <link href="mycircle.css" rel="stylesheet">
     <link rel="stylesheet" href="mystyle-portfolio.css">
-    <!-- Custom Fonts -->
-</head>
+   
 
-<body id="page-top" class="index">
+<div id="page-top" class="index">
     <!-- ============ Header ============= -->
     <header class="">
         <div class="container" style="height: 100% !important;">
@@ -182,32 +188,33 @@
                <div class="col-md-6">
                <div class="contact-bg">
                <h3 class="title-page visible-xs text-center">Contact</h3>
-                  <form name="sentMessage" id="contactForm" novalidate>
+                  <%= form_for @user do | f| %>
                       <div class=" control-group col-sm-6">
                           <div class="form-group  floating-label-form-group controls">
-                              <label>Name</label>
-                              <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
+                              <%= f.label :name %>
+                              <%= f.text_field  :name , class: "form-control" ,placeholder: "First Name" , pattern:"[a-zA-Z ]*$"%>                             
                               <p class="help-block text-danger"></p>
                           </div>
                       </div>
-                      <div class="control-group col-sm-6">
+                      
+                      <div class=" control-group col-sm-6">
                           <div class="form-group  floating-label-form-group controls">
-                              <label>Email Address</label>
-                              <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
+                              <%= f.label :phone %>
+                              <%= f.text_field  :phone , class: "form-control" ,placeholder: "Mobile Number" ,pattern:"^[0-9]{10}$"%>
+                              <p class="help-block text-danger"></p>
+                          </div>
+                      </div>
+                      <div class="control-group ">
+                          <div class="form-group  col-xs-12 floating-label-form-group controls">
+                              <%= f.label :email %>
+                              <%= f.text_field  :email , class: "form-control" ,placeholder: " Email Id" ,pattern:"^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$"%>
                               <p class="help-block text-danger"></p>
                           </div>
                       </div>
                       <div class=" control-group">
                           <div class="form-group col-xs-12 floating-label-form-group controls">
-                              <label>Phone Number</label>
-                              <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
-                              <p class="help-block text-danger"></p>
-                          </div>
-                      </div>
-                      <div class=" control-group">
-                          <div class="form-group col-xs-12 floating-label-form-group controls">
-                              <label>Message</label>
-                              <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                              <%= f.label :message %><br></br>
+                              <%= f.text_area  :message , class: "form-control" ,placeholder: " Message"%>
                               <p class="help-block text-danger"></p>
                           </div>
                       </div>
@@ -215,10 +222,11 @@
                       <div id="success"></div>
                       <div class="">
                           <div class="form-group col-xs-12">
-                              <button type="submit" class="btn btn-form">Send</button>
+                              
+                              <%= f.submit("Submit",class:"btn btn-danger") %>
                           </div>
                       </div>
-                  </form>
+                  <% end %>
                 </div>  
                 </div>
 
@@ -234,12 +242,6 @@
                 </div>
             </div> 
          </section>
-
-        <!-- ============ Footer ============= --> 
-
-        
-
-
         <!-- jQuery -->
         <script src="jquery.js"></script>
         <!-- Bootstrap Core JavaScript -->
@@ -254,5 +256,4 @@
               });
             });
         </script>
-    </body>
-</html>
+  </div>

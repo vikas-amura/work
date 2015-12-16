@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'index',to: 'users#index'
 
   get 'profile',to: 'users#profile' 
+  get 'display',to: 'users#display' 
 
   get 'register', to: 'logins#register'
 

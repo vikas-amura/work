@@ -8,6 +8,9 @@ class UsersController < ApplicationController
   def profile
   	 @user = User.new
   end
+  def display
+		@users=User.all
+	end
 
   def create
 		#render plain:params[:user].inspect
@@ -15,10 +18,21 @@ class UsersController < ApplicationController
 		
 		if @user.save
 			flash[:notice] = 'Data Save SucessFully!!!!'
-			render 'index'
+			redirect_to action: :index
 		else
-			render 'index'
+			redirect_to action: :index
 		end		
+	end
+
+	def show
+		@user=User.find(params[:id])		
+	end
+
+	def destroy
+		@user=User.find(params[:id])		
+		@user.destroy
+		flash[:notice]="Record Successfully Deleted!!!!"
+		redirect_to users_path
 	end
 
 	private

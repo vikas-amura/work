@@ -2,14 +2,20 @@
  p,h4,label,button,h3{
   color: #fff;
 }
+p.text-circle {
+  color:#000000;
+  font-size:17px;
+  position:relative;
+  text-align:center;
+  top:130px;
+}
 </style>
     <link href="mystyle.css" rel="stylesheet">
     <link href="mycircle.css" rel="stylesheet">
     <link rel="stylesheet" href="mystyle-portfolio.css">
-    <!-- Custom Fonts -->
-</head>
+   
 
-<body id="page-top" class="index">
+<div id="page-top" class="index">
     <!-- ============ Header ============= -->
     <header class="">
         <div class="container" style="height: 100% !important;">
@@ -141,7 +147,7 @@
                                 <div class="bar"></div>
                                 <div class="fill"></div>
                             </div>
-                            <p class="text-circle">Web Design </p>
+                            <p class="text-circle">PHP</p>
                         </div>
                         <div class="c100 p75">
                             <span>75%</span>
@@ -149,29 +155,29 @@
                                     <div class="bar"></div>
                                     <div class="fill"></div>
                                 </div>
-                                <p class="text-circle">Photography </p>
+                                <p class="text-circle">RUBY ON RAILS </p>
                         </div>
                         <div class="c100 p55">
-                            <span>50%</span>
+                            <span>60%</span>
                             <div class="slice">
                                 <div class="bar"></div>
                                 <div class="fill"></div>
                             </div>
-                            <p class="text-circle">Graphic Design </p>
+                            <p class="text-circle">JQuery/Html/Css</p>
                         </div>
                     </div>
                 </div>
                     <div class="col-md-6 text-side-left descrip-text">
                        <h3 class="title-page hidden-xs ">Software Skill</h3>
                        <hr>
-                       <h4 class="list-text">Web Design</h4>
-                       <p class="list-text-p">2010-2012 Master Degree </p>
+                       <h4 class="list-text">PHP</h4>
+                       <p class="list-text-p">2013-2015 Master Degree </p>
                         <br>
-                       <h4 class="list-text">Graphics Design</h4>
-                       <p class="list-text-p">2012-2014 </p>
+                       <h4 class="list-text">RUBY ON RAILS </h4>
+                       <p class="list-text-p">2015 to Till</p>
                         <br>
-                       <h4 class="list-text">Photography</h4>
-                       <p class="list-text-p">2015-2015</p>
+                       <h4 class="list-text">JQuery/Html/Css</h4>
+                       <p class="list-text-p">2013-2015</p>
                     </div>
                 </div>                
             </div>
@@ -186,28 +192,29 @@
                       <div class=" control-group col-sm-6">
                           <div class="form-group  floating-label-form-group controls">
                               <%= f.label :name %>
-                              <%= f.text_field  :name , class: "form-control" %>                             
+                              <%= f.text_field  :name , class: "form-control" ,placeholder: "First Name" , pattern:"[a-zA-Z ]*$",required: true%>                             
                               <p class="help-block text-danger"></p>
                           </div>
                       </div>
-                      <div class="control-group col-sm-6">
+                      
+                      <div class=" control-group col-sm-6">
                           <div class="form-group  floating-label-form-group controls">
-                              <%= f.label :email %>
-                              <%= f.text_field  :email , class: "form-control" %>
+                              <%= f.label :phone %>
+                              <%= f.text_field  :phone , class: "form-control" ,placeholder: "Mobile Number" ,pattern:"^[0-9]{10}$",required: true%>
                               <p class="help-block text-danger"></p>
                           </div>
                       </div>
-                      <div class=" control-group">
-                          <div class="form-group col-xs-12 floating-label-form-group controls">
-                              <%= f.label :phone %>
-                              <%= f.text_field  :phone , class: "form-control" %>
+                      <div class="control-group ">
+                          <div class="form-group  col-xs-12 floating-label-form-group controls">
+                              <%= f.label :email %>
+                              <%= f.text_field  :email , class: "form-control" ,placeholder: " Email Id" ,pattern:"^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$",required: true%>
                               <p class="help-block text-danger"></p>
                           </div>
                       </div>
                       <div class=" control-group">
                           <div class="form-group col-xs-12 floating-label-form-group controls">
                               <%= f.label :message %><br></br>
-                              <%= f.text_area  :message , class: "form-control"%>
+                              <%= f.text_area  :message , class: "form-control" ,placeholder: " Message",required: true%>
                               <p class="help-block text-danger"></p>
                           </div>
                       </div>
@@ -216,7 +223,7 @@
                       <div class="">
                           <div class="form-group col-xs-12">
                               
-                              <%= f.submit %>
+                              <%= f.submit("Submit",class:"btn btn-danger") %>
                           </div>
                       </div>
                   <% end %>
@@ -227,11 +234,14 @@
                      <h3 class="title-page hidden-xs">Contact</h3>
                      <hr>
                      <h4 class="text-start"> Mobile </h4>
-                     <p class="list-text-p"> 9960394184</p>
+                     <p class="list-text-p"> 9960394774</p>
                      <br>
                      <h4 class="text-start">E - mail</h4>
                      <p class="list-text-p">vikas.kale12@gmail.com</p>
-                     <br>                     
+                     <br>
+                     <h4 class="text-start">Address</h4>
+                     <p class="list-text-p">At Post Thathawade Tal Muilsi<br>Dist-Pune -411033</p>
+                     <br>                         
                 </div>
             </div> 
          </section>
@@ -249,5 +259,4 @@
               });
             });
         </script>
-    </body>
-</html>
+  </div>
