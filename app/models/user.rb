@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
     		  format:{ with: VALID_EMAIL_REGEX}
     validates :phone, presence: true, length: {minimum: 10}
     validates :message, presence: true, length: {minimum: 10, maximum: 300}
+
+	has_secure_password
 end
