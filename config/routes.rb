@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   resources :pages
   resources :users
 
+
   root 'logins#index'
 
   get 'index',to: 'users#index'
+  get 'SignUp',to: 'users#new'
 
   get 'profile',to: 'users#profile' 
   get 'display',to: 'users#display' 

@@ -4,6 +4,9 @@ class UsersController < ApplicationController
   def index
   	 @user = User.new
   end
+  def new
+  	@user=User.new
+  end
 
   def profile
   	 @user = User.new
@@ -14,13 +17,13 @@ class UsersController < ApplicationController
 
   def create
 		#render plain:params[:user].inspect
-		@user = User.new(user_params)
+		@user = User.new(user_params)	
 		
 		if @user.save
 			flash[:notice] = 'Data Save SucessFully!!!!'
 			redirect_to action: :index
 		else
-			redirect_to action: :index
+			render 'new'
 		end		
 	end
 
@@ -40,7 +43,7 @@ class UsersController < ApplicationController
 		@user=User.find(params[:id])		
 	end
 	def user_params
-	params.require(:user).permit(:name, :email,:phone,:message)
+	params.require(:user).permit(:name, :email,:phone,:password)
 	end
 
 end
