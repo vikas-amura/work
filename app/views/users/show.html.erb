@@ -1,32 +1,9 @@
 
-<style type="text/css">
-.mainDiv{
-	margin-left: 300px;
-}
-table{
-  padding: 8px;
-  width: 80%;
-}
-th{
-  color: #FFF;
-}
-td {
-  color: #FFF;
-  text-align: center;
-}
-th,td {
-  border: 1px solid #FFF;
-  line-height: 25px;
-}
-</style>
-<div class="mainDiv">
-
-<h1>The Selected User</h1>
-<table>
-	<tr><td>Name:</td><td><%=@user.name%></td>	</tr>
-	<tr><td>Email:</td><td><%=@user.email %></td></tr>
-  <tr><td>Phone:</td><td><%=@user.phone%></td> </tr>
-  <tr><td>Message:</td><td><%=@user.message %></td></tr>
-</table>
-<%= link_to 'back ','../index'%>
+<h1 align="center">Welcome to <%= @user.name %>'s page</h1>
+<div class="row">
+<div class="col-md-4 col-md-offset-4 center">
+<%= gravatar_for @user, size: 150 %>
 </div>
+</div>
+<h4 align="center"><%= @user.name %>'s articles</h4>
+<%= render 'articles/article', obj: @user.articles %>

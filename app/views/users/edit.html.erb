@@ -1,0 +1,50 @@
+        <h1 align="center">Edit User</h1>       
+        <section id="contact">
+            <div class="row">
+               <div class="col-md-6">
+               <div class="contact-bg">
+               <h3 class="title-page visible-xs text-center">Contact</h3>       
+                <%= form_for @user do | f| %>
+                      <div class=" control-group col-sm-6">
+                          <div class="form-group  floating-label-form-group controls">
+                              <%= f.label :name %>
+                              <%= f.text_field  :name , class: "form-control" ,placeholder: "First Name" , pattern:"[a-zA-Z ]*$",required: true%>                             
+                              <p class="help-block text-danger"></p>
+                          </div>
+                      </div>
+                      
+                      <div class=" control-group col-sm-6">
+                          <div class="form-group  floating-label-form-group controls">
+                              <%= f.label :phone %>
+                              <%= f.text_field  :phone , class: "form-control" ,placeholder: "Mobile Number" ,pattern:"^[0-9]{10}$",required: true%>
+                              <p class="help-block text-danger"></p>
+                          </div>
+                      </div>
+                      <div class="control-group ">
+                          <div class="form-group  col-xs-12 floating-label-form-group controls">
+                              <%= f.label :email %>
+                              <%= f.text_field  :email , class: "form-control" ,placeholder: " Email Id" ,pattern:"^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$",required: true%>
+                              <p class="help-block text-danger"></p>
+                          </div>
+                      </div>
+
+                      <div class="control-group ">
+                          <div class="form-group  col-xs-12 floating-label-form-group controls">
+                              <%= f.label :password %>
+                              <%= f.password_field  :password , class: "form-control" ,placeholder: " Password" ,required: true%>
+                              <p class="help-block text-danger"></p>
+                          </div>
+                          </div>
+
+                      <div id="success"></div>
+                      <div class="">
+                          <div class="form-group col-xs-12">                   
+                              <%= f.submit("Update",class:"btn btn-danger") %>
+                          </div>
+                      </div>
+                  <% end %>
+                   </div>  
+                </div>
+
+</div>
+</section>

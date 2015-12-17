@@ -14,7 +14,7 @@
 	<% flash.each do | name ,msg | %>
 		<%=msg%>
 	<%end%>
-	<%= render "layouts/header" %>
+	<% render "layouts/header" %>
 	<%= render "layouts/navbar" %>
 		<%=yield %>
 	<%= render "layouts/footer" %>
